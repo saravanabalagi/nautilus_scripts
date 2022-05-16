@@ -1,0 +1,3 @@
+#!/bin/sh
+filename="${$1%%.*}"
+eval "ffmpeg -i $1 $filename_converted.mp4"

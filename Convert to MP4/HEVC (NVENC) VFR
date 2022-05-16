@@ -1,0 +1,12 @@
+#!/bin/sh
+file=$(echo "$1" | awk 'BEGIN { FS = "\n" } { printf "\"%s\" ", $1 }' | sed -e s#\"\"\#\#)
+
+# Remove extension, add suffix, add quotes
+fname=$(echo "$1" | cut -f 1 -d '.')
+fname="$fname (Converted)"
+fname=\"$fname\"
+
+# For bitrate, -b:v 1M
+# For FPS, -filter:v fps=15
+eval "ffmpeg -i $file -c:a copy -c:v hevc_nvenc -vsync 2 ${fname}.mp4"
+
