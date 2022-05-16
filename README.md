@@ -1,5 +1,7 @@
 # Nautilus Scripts
 
+Useful custom actions for Ubuntu's File Manager Nautilus
+
 ## Dependencies
 
 1. `ffmpeg` with NVENV
