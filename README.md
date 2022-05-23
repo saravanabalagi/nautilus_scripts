@@ -4,7 +4,7 @@ Useful custom actions for Ubuntu's File Manager Nautilus
 
 ## Dependencies
 
-1. `ffmpeg` with NVENV
+1. `ffmpeg` (optionally with NVENC)
 2. `convert` command from ImageMagick
 
 
