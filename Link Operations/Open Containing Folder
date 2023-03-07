@@ -1,0 +1,19 @@
+#!/bin/sh
+NAUTILUS='/usr/bin/nautilus'
+PERL='/usr/bin/perl'
+READLINK='/bin/readlink'
+
+# retrieve the first object selected :
+first_object=`echo "$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS" \
+  | $PERL -ne 'print;exit'`
+
+# retrieve the target path :
+if [ -L "$first_object" ] ; then
+    # symbolic link
+    target=`$READLINK -f "$first_object"`
+else
+    # not a symbolic link :
+    target="$first_object"
+fi
+
+$NAUTILUS "$target"
